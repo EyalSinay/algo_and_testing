@@ -1,4 +1,5 @@
-/**
+/*
+*
  * @param {string} haystack
  * @param {string} needle
  * @return {number}
@@ -31,4 +32,8 @@ Constraints:
 haystack and needle consist of only lowercase English characters.
  */
 
-const strStr = function (haystack, needle) {};
+const strStr = function (haystack, needle) {
+    return haystack.indexOf(needle);
+};
+
+module.exports = strStr;

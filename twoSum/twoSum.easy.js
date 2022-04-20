@@ -1,4 +1,5 @@
-/**
+/*
+*
  * @param {number[]} nums
  * @param {number} target
  * @return {number[]}
@@ -26,4 +27,16 @@ Input: nums = [3,3], target = 6
 Output: [0,1]}
  */
 
-const twoSum = function (nums, target) {};
+const twoSum = function (nums, target) {
+    const arrSum = [];
+    for (let index1 = 0; index1 < nums.length; index1++) {
+        const index2 = nums.findIndex((num, ind) => num + nums[index1] === target && ind !== index1);
+        if (index2 > -1) {
+            return [index1, index2];
+        }
+    }
+    return "Not found";
+};
+
+
+module.exports = twoSum;

@@ -1,4 +1,5 @@
-/**
+/*
+*
  * @param {number[]} nums
  * @param {number} target
  * @return {number}
@@ -30,4 +31,12 @@ Constraints:
 nums contains distinct values sorted in ascending order.
 -104 <= target <= 104
  */
-const searchInsert = function (nums, target) {};
+const searchInsert = function (nums, target) {
+    if (!nums.includes(target)) {
+        nums.push(target);
+        nums.sort((a, b) => a - b);
+    }
+    return nums.indexOf(target);
+};
+
+module.exports = searchInsert;

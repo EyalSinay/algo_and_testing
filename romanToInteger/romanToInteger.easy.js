@@ -1,4 +1,5 @@
-/**
+/*
+*
  * @param {string} s
  * @return {number}
  * 
@@ -40,4 +41,38 @@ Output: 1994
 Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
  */
 
-const romanToInt = function (s) {};
+const romanToInt = function (s) {
+    romanNumeralObj = {
+        I: 1,
+        IV: 4,
+        V: 5,
+        IX: 9,
+        X: 10,
+        XL: 40,
+        L: 50,
+        XC: 90,
+        C: 100,
+        CD: 400,
+        D: 500,
+        CM: 900,
+        M: 1000,
+    }
+    const romanNumeralKeysArr = Object.keys(romanNumeralObj);
+    const romanNumeralValuesArr = Object.values(romanNumeralObj);
+
+    let counter = 0;
+    const sArr = s.split("");
+    for(let i = 0; i < sArr.length; i++){
+        if(sArr[i] + sArr[i + 1] && romanNumeralKeysArr.includes(sArr[i] + sArr[i + 1])){
+            let index = romanNumeralKeysArr.indexOf(sArr[i] + sArr[i + 1]);
+            counter += romanNumeralValuesArr[index];
+            i++;
+        } else {
+            let index = romanNumeralKeysArr.indexOf(sArr[i]);
+            counter += romanNumeralValuesArr[index];
+        }
+    }
+    return counter;
+};
+
+module.exports = romanToInt;

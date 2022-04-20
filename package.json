@@ -1,15 +1,23 @@
 {
   "name": "weekendproblams",
   "version": "1.0.0",
-  "description": "",
+  "description": "- **git clone https://(address)**\r - after clone please **npm install** this will install all what that this project is need automatically\r - **Note:** for run the test you need to run the command **npm run test**",
   "main": "index.js",
   "scripts": {
     "test": "jest"
   },
   "keywords": [],
-  "author": "",
+  "author": "eyal",
   "license": "ISC",
   "dependencies": {
     "jest": "^27.5.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EyalSinay/algo_and_testing.git"
+  },
+  "bugs": {
+    "url": "https://github.com/EyalSinay/algo_and_testing/issues"
+  },
+  "homepage": "https://github.com/EyalSinay/algo_and_testing#readme"
 }
