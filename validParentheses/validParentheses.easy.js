@@ -26,14 +26,43 @@ Output: false
  */
 const isValid = function (s) {
     const sArr = s.split('');
-    for (let i = 0; i < sArr.length; i += 2) {
-        if ((sArr[i] === '(' && sArr[i+1] === ')') || (sArr[i] === '{' && sArr[i+1] === '}') || (sArr[i] === '[' && sArr[i+1] === ']')) {
-            continue;
+    const objBracketsCounter = {
+        "{}": 0,
+        "[]": 0,
+        "()": 0,
+    }
+    for (let i = 0; i < sArr.length; i += 1) {
+        if (sArr[i] === "{"){
+            objBracketsCounter["{}"]++;
+        } else
+        if (sArr[i] === "}"){
+            objBracketsCounter["{}"]--;
+        } else
+        if (sArr[i] === "("){
+            objBracketsCounter["()"]++;
+        } else
+        if (sArr[i] === ")"){
+            objBracketsCounter["()"]--;
+        } else
+        if (sArr[i] === "["){
+            objBracketsCounter["[]"]++;
+        } else
+        if (sArr[i] === "]"){
+            objBracketsCounter["[]"]--;
         } else {
+            return "The input does not comply with the rules";
+        }
+
+        if (Object.values(objBracketsCounter).some(x => x < 0)) {
             return false;
         }
     }
-    return true;
+    console.log(objBracketsCounter);
+    if (Object.values(objBracketsCounter).every(x => x === 0)){
+        return true;
+    } else {
+        return false;
+    }
 };
 
 module.exports = isValid;
