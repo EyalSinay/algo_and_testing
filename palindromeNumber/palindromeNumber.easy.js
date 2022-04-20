@@ -1,4 +1,5 @@
-/**
+/*
+*
  * @param {number} x
  * @return {boolean}
  * 
@@ -26,6 +27,10 @@ Output: false
 Explanation: Reads 01 from right to left. Therefore it is not a palindrome.} 
  */
 
-const palindromeNumber = function (x) {};
+const palindromeNumber = function (x) {
+    const str = x.toString();
+    const reverseStr = str.split("").reverse().join("");
+    return str === reverseStr;
+};
 
 module.exports = palindromeNumber;
